@@ -81,6 +81,9 @@ static void panfrost_gpu_print_version(struct panfrost_ip *ip)
 	case 0x750:
 		name = "mali-t760";
 		break;
+	case 0x860:
+		name = "mali-t860";
+		break;
 	default:
 		name = "unknown";
 		break;

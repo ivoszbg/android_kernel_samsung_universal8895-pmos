@@ -8,6 +8,7 @@
 
 enum panfrost_gpu_id {
 	panfrost_gpu_malit760 = 0,
+	panfrost_gpu_malit860,
 	panfrost_gpu_num,
 };
 

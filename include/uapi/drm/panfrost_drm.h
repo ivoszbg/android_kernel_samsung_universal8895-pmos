@@ -11,6 +11,7 @@ extern "C" {
 #endif
 
 #define PANFROST_INFO_GPU_MALI_T760 0x00
+#define PANFROST_INFO_GPU_MALI_T860 0x01
 
 struct drm_panfrost_info {
 	__u32 gpu_id;	/* out */

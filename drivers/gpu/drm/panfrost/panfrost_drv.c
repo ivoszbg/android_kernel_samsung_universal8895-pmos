@@ -19,6 +19,9 @@ static int panfrost_ioctl_info(struct drm_device *ddev, void *data, struct drm_f
 	case panfrost_gpu_malit760:
 		info->gpu_id = PANFROST_INFO_GPU_MALI_T760;
 		break;
+	case panfrost_gpu_malit860:
+		info->gpu_id = PANFROST_INFO_GPU_MALI_T860;
+		break;
 	default:
 		return -ENODEV;
 	}
@@ -111,6 +114,7 @@ static int panfrost_pdev_remove(struct platform_device *pdev)
 
 static const struct of_device_id dt_match[] = {
 	{ .compatible = "arm,mali-t760" },
+	{ .compatible = "arm,mali-t860" },
 	{}
 };
 MODULE_DEVICE_TABLE(of, dt_match);
