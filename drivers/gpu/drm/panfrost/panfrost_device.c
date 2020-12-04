@@ -5,6 +5,7 @@
 #include <linux/regulator/consumer.h>
 
 #include "panfrost_device.h"
+#include "panfrost_gpu.h"
 
 struct panfrost_ip_desc {
 	char *name;
