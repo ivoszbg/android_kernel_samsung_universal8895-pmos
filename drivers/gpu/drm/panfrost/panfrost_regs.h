@@ -39,4 +39,11 @@
 #define PAN_GPU_CMD				0x30
 #define   PAN_GPU_CMD_SOFT_RESET		0x01
 #define PAN_GPU_STATUS				0x34
+
+/* MMU regs */
+#define PAN_MMU_INT_RAWSTAT			0x00
+#define PAN_MMU_INT_CLEAR			0x04
+#define PAN_MMU_INT_MASK			0x08
+#define PAN_MMU_INT_STAT			0x0c
+
 #endif

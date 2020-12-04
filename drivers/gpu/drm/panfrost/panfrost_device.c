@@ -6,6 +6,7 @@
 
 #include "panfrost_device.h"
 #include "panfrost_gpu.h"
+#include "panfrost_mmu.h"
 
 struct panfrost_ip_desc {
 	char *name;

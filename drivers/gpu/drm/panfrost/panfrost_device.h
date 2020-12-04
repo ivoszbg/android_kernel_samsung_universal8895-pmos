@@ -56,9 +56,6 @@ void panfrost_device_fini(struct panfrost_device *pfdev);
 int panfrost_job_init(struct panfrost_ip *ip);
 void panfrost_job_fini(struct panfrost_ip *ip);
 
-int panfrost_mmu_init(struct panfrost_ip *ip);
-void panfrost_mmu_fini(struct panfrost_ip *ip);
-
 const char *panfrost_ip_name(struct panfrost_ip *ip);
 
 #endif
