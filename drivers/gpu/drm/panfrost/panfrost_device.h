@@ -11,15 +11,50 @@ enum panfrost_gpu_id {
 	panfrost_gpu_num,
 };
 
+enum panfrost_ip_id {
+	panfrost_ip_gpu,
+	panfrost_ip_job,
+	panfrost_ip_mmu,
+	panfrost_ip_num,
+};
+
+struct panfrost_device;
+
+struct panfrost_ip {
+	struct panfrost_device *pfdev;
+	enum panfrost_ip_id id;
+	bool present;
+
+	void __iomem *iomem;
+	int irq;
+};
+
 struct panfrost_device {
 	struct device *dev;
 	struct drm_device *ddev;
 	struct platform_device *pdev;
 
 	enum panfrost_gpu_id id;
+
+	void __iomem *iomem;
+	struct clk *clock;
+	struct regulator *regulator;
+
+	struct panfrost_ip ip[panfrost_ip_num];
+
 };
 
 int panfrost_device_init(struct panfrost_device *pfdev);
 void panfrost_device_fini(struct panfrost_device *pfdev);
+
+int panfrost_gpu_init(struct panfrost_ip *ip);
+void panfrost_gpu_fini(struct panfrost_ip *ip);
+
+int panfrost_job_init(struct panfrost_ip *ip);
+void panfrost_job_fini(struct panfrost_ip *ip);
+
+int panfrost_mmu_init(struct panfrost_ip *ip);
+void panfrost_mmu_fini(struct panfrost_ip *ip);
+
 
 #endif
