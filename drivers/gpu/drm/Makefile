@@ -74,4 +74,5 @@ obj-$(CONFIG_DRM_IMX) += imx/
 obj-y			+= i2c/
 obj-y			+= panel/
 obj-y			+= bridge/
+obj-$(CONFIG_DRM_PANFROST) += panfrost/
 obj-$(CONFIG_DRM_FSL_DCU) += fsl-dcu/
