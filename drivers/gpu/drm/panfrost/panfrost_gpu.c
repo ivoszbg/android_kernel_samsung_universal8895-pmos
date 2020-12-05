@@ -73,11 +73,16 @@ static int panfrost_gpu_soft_reset_async_wait(struct panfrost_ip *ip)
 
 static void panfrost_gpu_print_version(struct panfrost_ip *ip)
 {
-	u32 version, major, minor;
+	u32 gpu_id, version, major, minor, status;
 	char *name;
 
-	version = gpu_read(VERSION);
-	switch (version >> 16) {
+	gpu_id = gpu_read(ID);
+	version = gpu_id >> 16;
+	major = (gpu_id >> 12) & 0xf;
+	minor = (gpu_id >> 4) & 0xff;
+	status = gpu_id & 0xf;
+	switch (version) {
+
 	case 0x750:
 		name = "mali-t760";
 		break;
@@ -88,8 +93,8 @@ static void panfrost_gpu_print_version(struct panfrost_ip *ip)
 		name = "unknown";
 		break;
 	}
-	dev_info(ip->pfdev->dev, "%s -  %s version %x\n",
-		 panfrost_ip_name(ip), name, version);
+	dev_info(ip->pfdev->dev, "%s -  %s version 0x%x major 0x%x minor 0x%x status 0x%x\n",
+		 panfrost_ip_name(ip), name, version, major, minor, status);
 }
 
 int panfrost_gpu_init(struct panfrost_ip *ip)

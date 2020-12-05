@@ -11,7 +11,7 @@
  */
 
 /* GPU regs */
-#define PAN_GPU_VERSION				0x00
+#define PAN_GPU_ID				0x00
 #define PAN_GPU_INT_RAWSTAT			0x20
 #define PAN_GPU_INT_CLEAR			0x24
 #define PAN_GPU_INT_MASK			0x28
