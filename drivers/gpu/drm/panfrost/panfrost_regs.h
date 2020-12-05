@@ -40,6 +40,32 @@
 #define   PAN_GPU_CMD_SOFT_RESET		0x01
 #define PAN_GPU_STATUS				0x34
 
+/* Job Control regs */
+#define PAN_JOB_INT_RAWSTAT			0x000
+#define PAN_JOB_INT_CLEAR			0x004
+#define PAN_JOB_INT_MASK			0x008
+#define PAN_JOB_INT_STAT			0x00c
+#define PAN_JOB_JS_STATE			0x010
+#define PAN_JOB_INT_THROTTLE			0x014
+#define PAN_JOB_SLOT0				0x800
+#define   PAN_JS_HEAD_LO			0x000
+#define   PAN_JS_HEAD_HI			0x004
+#define   PAN_JS_TAIL_LO			0x008
+#define   PAN_JS_TAIL_HI			0x00c
+#define   PAN_JS_AFFINITY_LO			0x010
+#define   PAN_JS_AFFINITY_HI			0x014
+#define   PAN_JS_CONFIG				0x018
+#define   PAN_JS_XAFFINITY			0x01c
+#define   PAN_JS_COMMAND			0x020
+#define   PAN_JS_STATUS				0x024
+#define   PAN_JS_HEAD_NEXT_LO			0x040
+#define   PAN_JS_HEAD_NEXT_HI			0x044
+#define   PAN_JS_AFFINITY_NEXT_LO		0x050
+#define   PAN_JS_AFFINITY_NEXT_HI		0x054
+#define   PAN_JS_CONFIG_NEXT			0x058
+#define   PAN_JS_COMMAND_NEXT			0x060
+#define   PAN_JS_FLUSH_ID_NEXT			0x070
+
 /* MMU regs */
 #define PAN_MMU_INT_RAWSTAT			0x00
 #define PAN_MMU_INT_CLEAR			0x04
