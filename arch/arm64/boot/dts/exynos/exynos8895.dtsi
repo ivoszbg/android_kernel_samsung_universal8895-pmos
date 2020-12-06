@@ -775,16 +775,19 @@
 	};
 
 	mali: mali@13900000 {
-		compatible = "arm,mali";
+		compatible = "arm,malit6xx", "arm,mali-midgard";
 		reg = <0x0 0x13900000 0x5000>;
 		interrupts = <0 60 0>,
 		             <0 61 0>,
 		             <0 59 0>;
 		interrupt-names = "JOB", "MMU", "GPU";
+		ipa-model = "mali-simple-power-model";
 		g3d_cmu_cal_id = <ACPM_DVFS_G3D>;
 		samsung,power-domain = <&pd_g3d>;
 		g3d_genpd_name = "pd-g3d"; /*KC: pg-g3d, LT,MK: pd-embedded_g3d*/
 		#cooling-cells = <2>; /* min followed by max */
+		cooling-min-level = <5>;
+		cooling-max-level = <0>;
 		governor = "interactive";
 		interactive_info = <455000 95 0>;
 		gpu_dvfs_table_size = <9 7>; /*<row col>*/
@@ -837,6 +840,15 @@
 		gpu_asv_cali_lock_val = <546000>; /*Should check this value when MALI_ASV_CALIBRATION_SUPPORT is enabled*/
 		gpu_set_pmu_duration_reg = <0x40F0>; /* only for KC for now*/
 		gpu_set_pmu_duration_val = <0xfffff363>; /* only for KC for now*/
+
+		gpu_power_model: power_model {
+			compatible = "arm,mali-simple-power-model";
+			static-coefficient = <350>;
+			dynamic-coefficient = <5000>;
+			ts = <48020 2120 (-50) 1>;
+			thermal-zone = "cls0";
+			temp-poll-interval-ms = <100>;
+		};
 	};
 
 	ufs@0x11120000 {
